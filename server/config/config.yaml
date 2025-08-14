@@ -1,0 +1,30 @@
+# Apple Music Link Parser 后端配置
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+  reload: true
+  log_level: "info"
+
+cors:
+  allow_origins: ["*"]  # 生产环境中应设置具体域名
+  allow_credentials: true
+  allow_methods: ["*"]
+  allow_headers: ["*"]
+
+apple_music:
+  # Apple Music 链接正则表达式模式 - 支持多种类型
+  patterns:
+    album: "https:\\/\\/(?:beta\\.music|music|classical\\.music)\\.apple\\.com\\/(\\w{2})\\/album\\/[^\\/\\s]+\\/(\\d+)(?:\\?[^\\s]*)?(?=\\s|$|https:|[^a-zA-Z0-9\\-._~:/?#\\[\\]@!$&'()*+,;=])"
+    song: "https:\\/\\/(?:beta\\.music|music)\\.apple\\.com\\/(\\w{2})\\/song\\/[^\\/\\s]+\\/(\\d+)(?:\\?[^\\s]*)?(?=\\s|$|https:|[^a-zA-Z0-9\\-._~:/?#\\[\\]@!$&'()*+,;=])"
+    playlist: "https:\\/\\/(?:beta\\.music|music)\\.apple\\.com\\/(\\w{2})\\/playlist\\/[^\\/\\s]+\\/(pl\\.[\\w\\-]+)(?:\\?[^\\s]*)?(?=\\s|$|https:|[^a-zA-Z0-9\\-._~:/?#\\[\\]@!$&'()*+,;=])"
+    artist: "https:\\/\\/(?:beta\\.music|music)\\.apple\\.com\\/(\\w{2})\\/artist\\/[^\\/\\s]+\\/(\\d+)(?:\\?[^\\s]*)?(?=\\s|$|https:|[^a-zA-Z0-9\\-._~:/?#\\[\\]@!$&'()*+,;=])"
+    music_video: "https:\\/\\/(?:beta\\.music|music)\\.apple\\.com\\/(\\w{2})\\/music-video\\/[^\\/\\s]+\\/(\\d+)(?:\\?[^\\s]*)?(?=\\s|$|https:|[^a-zA-Z0-9\\-._~:/?#\\[\\]@!$&'()*+,;=])"
+  
+  # 支持的分隔符
+  separators: [" ", ",", ".", "。", "；", ";", "/", "、", "\\"]
+
+api:
+  title: "Apple Music Link Parser API"
+  version: "1.0.0"
+  description: "用于解析和处理 Apple Music 链接的 API 服务"
