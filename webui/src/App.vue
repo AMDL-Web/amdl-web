@@ -49,8 +49,6 @@ const pushTask = () => {
 
 .button-wrapper
   display inline-block
-  min-width 120px
+  width 250px
   overflow visible
-
-
 </style>
