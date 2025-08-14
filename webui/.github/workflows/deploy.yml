@@ -1,0 +1,61 @@
+name: 同步至 Deploy 分支
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: null
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 迁出代码
+        uses: actions/checkout@master
+
+      - name: 获取提交版本号
+        id: get_version
+        run: |
+          version=$(git rev-parse --short HEAD)
+          echo "VERSION=$version" >> $GITHUB_ENV
+          echo "Latest commit version: $version"
+
+      - name: 查询所有主题配置文件
+        run: |
+          find . -type f -name "index.html" > footer_files.txt
+          find . -type f -name "App.vue" > footer_files.txt
+          cat footer_files.txt # 输出查找到的 HTML 文件列表
+
+      - name: 更新 footer 的版本号
+        run: |
+          version=${{ env.VERSION }}
+          while IFS= read -r file; do
+            sed -i "s/{{gitVersion}}/$version/g" "$file"
+            echo "Updated version in $file"
+          done < footer_files.txt
+
+      - name: 输出遭到修改的文件列表
+        run: |
+          cat footer_files.txt # 输出修改后的 HTML 文件列表
+
+      - name: 设置Node环境
+        uses: actions/setup-node@master
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+        with:
+          version: 10.14.0
+          run_install: false # Disable auto-install
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check
+        run: pnpm run check
+
+      - name: Run Vite Build
+        run: pnpm run build
+
+      - name: 部署到 Deploy 分支
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: deploy
+          folder: dist

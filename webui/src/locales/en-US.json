@@ -1,0 +1,19 @@
+{
+  "form": {
+    "songUrl": "Song URL",
+    "push": "Push"
+  },
+  "footer": {
+    "version": "Version"
+  },
+  "sidebar": {
+    "title": "Menu",
+    "language": "Languages",
+    "link": {
+      "title": "Links",
+      "issue": "Issues",
+      "github": "GitHub",
+      "discussions": "Discussions"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "form": {
+    "songUrl": "音楽リンク",
+    "push": "プッシュ"
+  },
+  "footer": {
+    "version": "バージョン番号"
+  },
+  "sidebar": {
+    "title": "メニュー",
+    "language": "言語",
+    "link": {
+      "title": "リンク",
+      "issue": "問題のフィードバック",
+      "github": "プロジェクトアドレス",
+      "discussions": "ディスカッション"
+    }
+  }
+}

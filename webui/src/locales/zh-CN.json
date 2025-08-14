@@ -1,0 +1,19 @@
+{
+  "form": {
+    "songUrl": "歌曲链接",
+    "push": "推送"
+  },
+  "footer": {
+    "version": "版本号"
+  },
+  "sidebar": {
+    "title": "菜单",
+    "language": "语言",
+    "link": {
+      "title": "链接",
+      "issue": "问题反馈",
+      "github": "项目地址",
+      "discussions": "讨论区"
+    }
+  }
+}

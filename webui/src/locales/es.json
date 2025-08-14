@@ -1,0 +1,19 @@
+{
+  "form": {
+    "songUrl": "Enlace de la canción",
+    "push": "Notificación"
+  },
+  "footer": {
+    "version": "Número de versión"
+  },
+  "sidebar": {
+    "title": "Menú",
+    "language": "Idioma",
+    "link": {
+      "title": "Enlaces",
+      "issue": "Comentarios",
+      "github": "Dirección del proyecto",
+      "discussions": "Foro"
+    }
+  }
+}

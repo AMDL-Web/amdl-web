@@ -4,12 +4,21 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "dev": "prettier --write . && vite",
+    "build": "vue-tsc -b && prettier --write . && vite build",
+    "preview": "vite preview",
+    "format": "prettier --write .",
+    "check": "pnpm run format && vue-tsc -b",
+    "preinstall": "npx only-allow pnpm",
+    "git": "pnpm run check && git add * && git add *"
   },
   "dependencies": {
-    "vue": "^3.5.18"
+    "@element-plus/icons-vue": "^2.3.2",
+    "element-plus": "^2.10.7",
+    "prettier": "^3.6.2",
+    "stylus-loader": "^8.1.1",
+    "vue": "^3.5.18",
+    "vue-i18n": "^9.14.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.1",

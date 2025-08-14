@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
-
 defineProps<{ text: string }>();
 </script>
 
@@ -22,7 +20,8 @@ defineProps<{ text: string }>();
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  float: right;
+  margin-left: auto;
+  display: block;
   font-weight: 700;
   letter-spacing: 0.05em;
   margin: 0;
@@ -48,7 +47,9 @@ defineProps<{ text: string }>();
   position: absolute;
   transform: translateY(-50%);
   transform-origin: center;
-  transition: background 0.3s linear, width 0.3s linear;
+  transition:
+    background 0.3s linear,
+    width 0.3s linear;
 }
 
 .fancy .text {
@@ -70,7 +71,9 @@ defineProps<{ text: string }>();
   left: 0.625rem;
   position: absolute;
   background: #e8e8e8;
-  transition: width 0.5s ease-out, left 0.3s ease-out;
+  transition:
+    width 0.5s ease-out,
+    left 0.3s ease-out;
 }
 
 .fancy .bottom-key-1 {
@@ -80,7 +83,9 @@ defineProps<{ text: string }>();
   bottom: -2px;
   position: absolute;
   background: #e8e8e8;
-  transition: width 0.5s ease-out, right 0.3s ease-out;
+  transition:
+    width 0.5s ease-out,
+    right 0.3s ease-out;
 }
 
 .fancy .bottom-key-2 {
@@ -90,7 +95,9 @@ defineProps<{ text: string }>();
   bottom: -2px;
   position: absolute;
   background: #e8e8e8;
-  transition: width 0.5s ease-out, right 0.3s ease-out;
+  transition:
+    width 0.5s ease-out,
+    right 0.3s ease-out;
 }
 
 .fancy:hover {
